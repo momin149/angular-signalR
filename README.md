@@ -1,6 +1,9 @@
-# AgTiles
+# Angular SignalR
 
 This project is a boilerplate for developing pluggable tiles.
+
+## Prerequisite
+  Node 10.16.0
 
 ## Installation
 
@@ -96,7 +99,7 @@ npm run build
 This command includes the name of the plugin bundle
 
 ```
-"build": "ng build --project plugin --prod --pluginName=ag-tiles",
+"build": "ng build --project plugin --prod --pluginName=chart-tiles",
                                            ^^^^^^^^^^^^^^^^^^^^^
 ```
 will result in `dist/plugin/ag-tiles.js` file.
