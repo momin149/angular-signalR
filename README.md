@@ -13,7 +13,7 @@ After cloning this repository run
 npm install
 ```
 
-**Important note:** this repository contains AgCommon repository in dependencies which will be cloned through SSH protocol, so you need to configure your access to the GitHub by SSH key.
+**Important note:** this repository contains dependencies which will be cloned through SSH protocol, so you need to configure your access to the GitHub by SSH key.
 
 ## Tiles sandbox
 The `tiles` repository is where we can develop our tiles.
