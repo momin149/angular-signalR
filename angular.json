@@ -1,0 +1,139 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "playground": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "playground",
+      "sourceRoot": "playground/src",
+      "prefix": "lp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/playground",
+            "index": "playground/src/index.html",
+            "main": "playground/src/main.ts",
+            "polyfills": "playground/src/polyfills.ts",
+            "tsConfig": "playground/tsconfig.app.json",
+            "assets": [
+              "playground/src/favicon.ico",
+              "playground/src/assets",
+              { "glob": "**/*", "input": "node_modules/lp-common/assets/fonts/", "output": "/assets/fonts/" }
+            ],
+            "styles": [
+              "playground/src/styles.scss"
+            ],
+            "scripts": ["node_modules/chart.js/dist/Chart.js"]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "playground/src/environments/environment.ts",
+                  "with": "playground/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "playground:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "playground:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "playground/tsconfig.app.json",
+              "playground/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "plugin": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "plugin",
+      "sourceRoot": "plugin/src",
+      "prefix": "lp",
+      "architect": {
+        "build": {
+          "builder": "./builders:plugin",
+          "options": {
+            "outputPath": "dist/plugin",
+            "index": "",
+            "main": "plugin/main.ts",
+            "polyfills": "",
+            "tsConfig": "plugin/tsconfig.app.json",
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [],
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "playground",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
+}

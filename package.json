@@ -1,0 +1,45 @@
+{
+  "name": "light-point-module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ng serve -o",
+    "build": "ng build --project plugin --prod --pluginName=chart-tiles",
+    "create:tile": "schematics ./schematics/collection.json:createTile --debug=false",
+    "postinstall": "tsc -p builders/tsconfig.builders.json"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.0.0",
+    "@angular/common": "~8.0.0",
+    "@angular/compiler": "~8.0.0",
+    "@angular/core": "~8.0.0",
+    "@angular/forms": "~8.0.0",
+    "@angular/platform-browser": "~8.0.0",
+    "@angular/platform-browser-dynamic": "~8.0.0",
+    "@angular/router": "~8.0.0",
+    "@aspnet/signalr": "^1.1.4",
+    "chart.js": "^2.8.0",
+    "chartjs-adapter-luxon": "^0.2.0",
+    "lp-common": "git@github.com:LightPointFinancialTechnology/agCommon.git",
+    "luxon": "^1.16.0",
+    "ng2-charts": "^2.3.0",
+    "rxjs": "~6.4.0",
+    "sortablejs": "1.8.4",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.800.2",
+    "@angular-devkit/core": "^8.0.3",
+    "@angular-devkit/schematics": "^8.0.3",
+    "@angular/cli": "~8.0.2",
+    "@angular/compiler-cli": "~8.0.0",
+    "@angular/language-service": "~8.0.0",
+    "@types/node": "~8.9.4",
+    "karma": "^4.1.0",
+    "prettier": "^1.17.1",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.3"
+  }
+}
